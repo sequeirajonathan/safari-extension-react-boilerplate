@@ -1,31 +1,39 @@
 {
-  "name": "template",
-  "description": "description",
+  "manifest_version": 3,
   "default_locale": "en",
+
+  "name": "__MSG_extension_name__",
+  "description": "__MSG_extension_description__",
   "version": "1.0",
-  "manifest_version": 2,
-  "permissions": [
-    "activeTab"
-  ],
+
   "icons": {
-    "16": "icons/icon.16.png",
-    "32": "icons/icon.32.png",
-    "48": "icons/icon.48.png",
-    "64": "icons/icon.64.png",
-    "128": "icons/icon.128.png",
-    "256": "icons/icon.256.png"
+      "48": "images/icon-48.png",
+      "96": "images/icon-96.png",
+      "128": "images/icon-128.png",
+      "256": "images/icon-256.png",
+      "512": "images/icon-512.png"
   },
+
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+      "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["*//*example.com/*"],
-      "js": ["content.js"]
-    }
-  ],
-  "browser_action": {
-    "default_popup": "popup.html"
-  }
+
+  "content_scripts": [{
+      "js": [ "content.js" ],
+      "matches": [ "*://example.com/*" ]
+  }],
+
+  "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+          "16": "images/toolbar-icon-16.png",
+          "19": "images/toolbar-icon-19.png",
+          "32": "images/toolbar-icon-32.png",
+          "38": "images/toolbar-icon-38.png",
+          "48": "images/toolbar-icon-48.png",
+          "72": "images/toolbar-icon-72.png"
+      }
+  },
+
+  "permissions": [ ]
 }
